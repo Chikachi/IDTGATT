@@ -1,0 +1,18 @@
+[{
+  "modid" : "idtgatt",
+  "name" : "It's Dangerous To Go Alone! Take This",
+  "version" : "${version}",
+  "mcversion": "${mcversion}",
+  "url" : "",
+  "credits" : "",
+  "authors": [
+    "Chikachi"
+  ],
+  "description": "It's Dangerous To Go Alone! Take This",
+  "logoFile" : "",
+  "updateUrl" : "",
+  "parent" : "",
+  "screenshots": [
+  ],
+  "requiredMods": [ ]
+}]

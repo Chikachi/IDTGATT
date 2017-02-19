@@ -1,0 +1,17 @@
+{
+  "message": true,
+  "items": [
+    {
+      "id": "minecraft:log",
+      "meta": 2,
+      "amount": 64
+    },
+    {
+      "id": "minecraft:potion",
+      "nbt": {
+        "Potion": "minecraft:strong_healing"
+      },
+      "amount": 2
+    }
+  ]
+}
