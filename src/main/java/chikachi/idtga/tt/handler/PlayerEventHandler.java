@@ -28,6 +28,10 @@ public class PlayerEventHandler {
     @SuppressWarnings("ConstantConditions")
     @SubscribeEvent()
     public void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent event) {
+        if (event.player.getServer().isDedicatedServer() && !event.player.isServerWorld()) {
+            return;
+        }
+
         boolean firsttime = false;
 
         try {

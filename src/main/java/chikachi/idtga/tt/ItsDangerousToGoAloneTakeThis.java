@@ -28,16 +28,11 @@ import org.apache.logging.log4j.Logger;
 import java.io.File;
 
 @SuppressWarnings({"WeakerAccess"})
-@Mod(modid = Constants.MODID, name = Constants.MODNAME, version = Constants.VERSION, serverSideOnly = true, acceptableRemoteVersions = "*")
+@Mod(modid = Constants.MODID, name = Constants.MODNAME, version = Constants.VERSION, acceptableRemoteVersions = "*")
 public class ItsDangerousToGoAloneTakeThis {
-    private static final Logger logger = LogManager.getLogger(Constants.MODID);
     @SuppressWarnings("unused")
     @Mod.Instance(value = Constants.MODID)
     public static ItsDangerousToGoAloneTakeThis instance;
-
-    public static void Log(String message) {
-        logger.log(Level.INFO, "[" + Constants.VERSION + "] " + message);
-    }
 
     @Mod.EventHandler
     public void onPreInit(FMLPreInitializationEvent event) {

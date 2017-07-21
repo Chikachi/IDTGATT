@@ -22,7 +22,7 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 def mcVersion = '1.10.2'
 def forgeVersion = '12.18.3.2185'
 
-version = mcVersion + "-0.0.1"
+version = mcVersion + "-1.0.0"
 group = "chikachi.idtga.tt" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "ItsDangerousToGoAloneTakeThis"
 

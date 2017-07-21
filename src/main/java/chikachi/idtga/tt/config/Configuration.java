@@ -182,7 +182,7 @@ public class Configuration {
         }
     }
 
-    public static void save() {
+    private static void save() {
         try {
             JsonWriter writer = new JsonWriter(new FileWriter(config));
             writer.setIndent("  ");
