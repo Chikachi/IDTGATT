@@ -30,6 +30,7 @@ public class ItsDangerousToGoAloneTakeThis {
     @SuppressWarnings("unused")
     @Mod.Instance(value = Constants.MODID)
     public static ItsDangerousToGoAloneTakeThis instance;
+    private static PlayerEventHandler eventHandler = new PlayerEventHandler();
 
     @Mod.EventHandler
     public void onPreInit(FMLPreInitializationEvent event) {
@@ -39,11 +40,11 @@ public class ItsDangerousToGoAloneTakeThis {
     @Mod.EventHandler
     public void onServerStarting(FMLServerStartingEvent event) {
         Configuration.load();
-        MinecraftForge.EVENT_BUS.register(new PlayerEventHandler());
+        MinecraftForge.EVENT_BUS.register(eventHandler);
     }
 
     @Mod.EventHandler
     public void onServerStopping(FMLServerStoppingEvent event) {
-        
+        MinecraftForge.EVENT_BUS.unregister(eventHandler);
     }
 }
