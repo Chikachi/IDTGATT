@@ -7,7 +7,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
     }
 }
 
@@ -20,8 +20,8 @@ repositories {
 
 apply plugin: 'net.minecraftforge.gradle.forge'
 
-def mcVersion = '1.12'
-def forgeVersion = '14.21.1.2420'
+def mcVersion = '1.11.2'
+def forgeVersion = '13.20.1.2421'
 
 version = mcVersion + "-1.0.0"
 group = "chikachi.idtga.tt" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
@@ -41,7 +41,7 @@ minecraft {
         runDir = 'run'
     }
     
-    mappings = "snapshot_20170721"
+    mappings = "stable_32"
 }
 
 def printDebug(message) {

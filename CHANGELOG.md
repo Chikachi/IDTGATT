@@ -1,4 +1,5 @@
-# Changelog
+# Changelog - 1.11.2
 
-### 0.0.1
-- Initial alpha version
+### 1.0.0
+- Full release
+	- Opened up for client side (single player worlds)
