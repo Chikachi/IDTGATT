@@ -22,7 +22,7 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 def mcVersion = '1.10.2'
 def forgeVersion = '12.18.3.2185'
 
-version = mcVersion + "-1.0.0"
+version = mcVersion + "-1.0.1"
 group = "chikachi.idtga.tt" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "ItsDangerousToGoAloneTakeThis"
 
@@ -49,31 +49,31 @@ class CurseForgeDependencyInfo {
     public String module, version, ext
     private String fileid
 
-    public CurseForgeDependencyInfo(String module, String version, String ext, String fileid) {
+    CurseForgeDependencyInfo(String module, String version, String ext, String fileid) {
         this.module = module
         this.version = version
         this.ext = ext
         this.fileid = fileid
     }
 
-    public String GetFileId() {
+    String GetFileId() {
         return Integer.parseInt(fileid.substring(0, 4)) + "/" + Integer.parseInt(fileid.substring(4))
     }
 }
 
-List<CurseForgeDependencyInfo> curseForgeDependencies = new ArrayList<CurseForgeDependencyInfo>();
+List<CurseForgeDependencyInfo> curseForgeDependencies = new ArrayList<CurseForgeDependencyInfo>()
 
 dependencies {
     for (CurseForgeDependencyInfo dependency : curseForgeDependencies) {
         if (file("../" + dependency.module).exists()) {
             printDebug "Using local " + dependency.module + " project"
             compile project(":" + dependency.module)
-            continue;
+            continue
         }
         if (file("./" + dependency.module + ".jar").exists()) {
             printDebug "Using local " + dependency.module + " compiled jar"
             compile files("./" + dependency.module + ".jar")
-            continue;
+            continue
         }
         compile group: dependency.GetFileId(), name: dependency.module, version: dependency.version, ext: dependency.ext
     }
