@@ -92,6 +92,8 @@ public class Configuration {
         if (!config.exists()) {
             save();
         } else {
+            items.clear();
+
             try {
                 JsonReader reader = new JsonReader(new FileReader(config));
                 String name;

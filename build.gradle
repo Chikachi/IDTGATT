@@ -23,7 +23,7 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 def mcVersion = '1.12'
 def forgeVersion = '14.21.1.2420'
 
-version = mcVersion + "-1.0.0"
+version = mcVersion + "-1.0.1"
 group = "chikachi.idtga.tt" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "ItsDangerousToGoAloneTakeThis"
 
@@ -40,7 +40,7 @@ minecraft {
     } else {
         runDir = 'run'
     }
-    
+
     mappings = "snapshot_20170721"
 }
 
@@ -52,31 +52,31 @@ class CurseForgeDependencyInfo {
     public String module, version, ext
     private String fileid
 
-    public CurseForgeDependencyInfo(String module, String version, String ext, String fileid) {
+    CurseForgeDependencyInfo(String module, String version, String ext, String fileid) {
         this.module = module
         this.version = version
         this.ext = ext
         this.fileid = fileid
     }
 
-    public String GetFileId() {
+    String GetFileId() {
         return Integer.parseInt(fileid.substring(0, 4)) + "/" + Integer.parseInt(fileid.substring(4))
     }
 }
 
-List<CurseForgeDependencyInfo> curseForgeDependencies = new ArrayList<CurseForgeDependencyInfo>();
+List<CurseForgeDependencyInfo> curseForgeDependencies = new ArrayList<CurseForgeDependencyInfo>()
 
 dependencies {
     for (CurseForgeDependencyInfo dependency : curseForgeDependencies) {
         if (file("../" + dependency.module).exists()) {
             printDebug "Using local " + dependency.module + " project"
             compile project(":" + dependency.module)
-            continue;
+            continue
         }
         if (file("./" + dependency.module + ".jar").exists()) {
             printDebug "Using local " + dependency.module + " compiled jar"
             compile files("./" + dependency.module + ".jar")
-            continue;
+            continue
         }
         compile group: dependency.GetFileId(), name: dependency.module, version: dependency.version, ext: dependency.ext
     }
@@ -90,11 +90,11 @@ processResources {
     // replace stuff in mcmod.info, nothing else
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
-                
+
         // replace version and mcversion
-        expand 'version':project.version, 'mcversion':project.minecraft.version
+        expand 'version': project.version, 'mcversion': project.minecraft.version
     }
-        
+
     // copy everything else except the mcmod.info
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'

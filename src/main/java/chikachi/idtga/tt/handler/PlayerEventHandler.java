@@ -32,19 +32,19 @@ public class PlayerEventHandler {
             return;
         }
 
-        boolean firsttime = false;
+        boolean firstTime = false;
 
         try {
             NBTTagCompound nbtTagCompound = event.player.getServer().getPlayerList().getPlayerNBT((EntityPlayerMP) event.player);
 
             if (nbtTagCompound == null) {
-                firsttime = true;
+                firstTime = true;
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        if (firsttime) {
+        if (firstTime) {
             List<ItemStack> itemStacks = Configuration.getItems();
 
             if (itemStacks.size() > 0) {
