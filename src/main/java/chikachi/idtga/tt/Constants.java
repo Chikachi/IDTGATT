@@ -17,5 +17,5 @@ package chikachi.idtga.tt;
 public class Constants {
     public static final String MODID = "idtgatt";
     static final String MODNAME = "It's Dangerous to Go Alone! Take This";
-    static final String VERSION = "1.0.0";
+    static final String VERSION = "1.0.1";
 }
